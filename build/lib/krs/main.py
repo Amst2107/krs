@@ -174,23 +174,23 @@ class KrsMain:
     
     def health_check(self, change_model=False, device='cpu'):
 
-        if os.path.exists(LLMSTATE_PICKLE_FILEPATH) and not change_model:
-            continue_previous_chat = input("\nDo you want to continue fixing the previously selected pod ? (y/n): >> ")
-            while True:
-                if continue_previous_chat not in ['y', 'n']:
-                    continue_previous_chat = input("\nPlease enter one of the given options ? (y/n): >> ")
-                else:
-                    break
+        # if os.path.exists(LLMSTATE_PICKLE_FILEPATH) and not change_model:
+        #     continue_previous_chat = input("\nDo you want to continue fixing the previously selected pod ? (y/n): >> ")
+        #     while True:
+        #         if continue_previous_chat not in ['y', 'n']:
+        #             continue_previous_chat = input("\nPlease enter one of the given options ? (y/n): >> ")
+        #         else:
+        #             break
 
-            if continue_previous_chat=='y':
-                krsllmclient = KrsGPTClient(device=device)
-                self.continue_chat = True
-            else:
-                krsllmclient = KrsGPTClient(reset_history=True, device=device)
+        #     if continue_previous_chat=='y':
+        #         krsllmclient = KrsGPTClient(device=device)
+        #         self.continue_chat = True
+        #     else:
+        #         krsllmclient = KrsGPTClient(reset_history=True, device=device)
             
-        else:
-            krsllmclient = KrsGPTClient(reinitialize=True, device=device)
-            self.continue_chat = False
+        # else:
+        #     krsllmclient = KrsGPTClient(reinitialize=True, device=device)
+        #     self.continue_chat = False
 
         if not self.continue_chat:
 
@@ -227,10 +227,8 @@ class KrsMain:
 
             print("\nExtracting logs and events from the pod...")
 
-            logs_from_pod = self.get_logs_from_pod(self.selected_namespace_index, self.selected_pod_index)
-
-            self.logs_extracted = extract_log_entries(logs_from_pod)
-
+            self.logs_extracted = self.get_logs_from_pod(self.selected_namespace_index, self.selected_pod_index) 
+            print(self.logs_extracted)                                                         
             print("\nLogs and events from the pod extracted successfully!\n")
 
         prompt_to_llm = self.create_prompt(self.logs_extracted)
@@ -243,8 +241,27 @@ class KrsMain:
         try:
             namespace_index -= 1
             pod_index -= 1
-            namespace = list(self.list_namespaces())[namespace_index]
-            return list(self.pod_info[namespace][pod_index]['info']['Logs'].values())[0]
+            namespace = list(self.list_namespaces())[namespace_index]             
+            formatted_logs = ""                 
+            container_status = {}
+            for container_state in self.pod_info[namespace][pod_index]['info']['PodInfo']['status']['container_statuses']:                           
+                container_status[container_state['name']] = container_state['state']['running']
+            
+            for container_name, log in self.pod_info[namespace][pod_index]['info']['Logs'].items():            
+                status = container_status.get(container_name)                                           
+                extracted_logs = extract_log_entries(log, status) 
+                if str(status) == "None": 
+                    formatted_logs += f"\n{container_name}\n"                    
+                    formatted_logs += f"{extracted_logs}\n"
+                else:
+                    filtered_log = {log_line for log_line in extracted_logs if "Error" in log_line or "Failed" in log_line}                            
+                    if filtered_log:
+                        formatted_logs += f"\n{container_name}\n"
+                        for _, log_entry in enumerate(filtered_log, 1):
+                            formatted_logs += f"{log_entry}\n"                    
+                    else:
+                        formatted_logs += f"\nContainer {container_name} has no ERRORS or FAILED logs string\n"                                           
+            return formatted_logs
         except KeyError as e:
             print("\nKindly enter a value from the available namespaces and pods")
             return None

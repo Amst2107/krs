@@ -227,10 +227,8 @@ class KrsMain:
 
             print("\nExtracting logs and events from the pod...")
 
-            logs_from_pod = self.get_logs_from_pod(self.selected_namespace_index, self.selected_pod_index)
-
-            self.logs_extracted = extract_log_entries(logs_from_pod)
-
+            self.logs_extracted = self.get_logs_from_pod(self.selected_namespace_index, self.selected_pod_index) 
+                                                                             
             print("\nLogs and events from the pod extracted successfully!\n")
 
         prompt_to_llm = self.create_prompt(self.logs_extracted)
@@ -243,8 +241,27 @@ class KrsMain:
         try:
             namespace_index -= 1
             pod_index -= 1
-            namespace = list(self.list_namespaces())[namespace_index]
-            return list(self.pod_info[namespace][pod_index]['info']['Logs'].values())[0]
+            namespace = list(self.list_namespaces())[namespace_index]             
+            formatted_logs = ""                 
+            container_status = {}
+            for container_state in self.pod_info[namespace][pod_index]['info']['PodInfo']['status']['container_statuses']:                           
+                container_status[container_state['name']] = container_state['state']['running']
+            
+            for container_name, log in self.pod_info[namespace][pod_index]['info']['Logs'].items():            
+                status = container_status.get(container_name)                                           
+                extracted_logs = extract_log_entries(log, status) 
+                if str(status) == "None": 
+                    formatted_logs += f"\n{container_name}\n"                    
+                    formatted_logs += f"{extracted_logs}\n"
+                else:
+                    filtered_log = {log_line for log_line in extracted_logs if "Error" in log_line or "Failed" in log_line}                            
+                    if filtered_log:
+                        formatted_logs += f"\n{container_name}\n"
+                        for _, log_entry in enumerate(filtered_log, 1):
+                            formatted_logs += f"{log_entry}\n"                    
+                    else:
+                        formatted_logs += f"\nContainer {container_name} has no ERRORS or FAILED logs string\n"                                           
+            return formatted_logs
         except KeyError as e:
             print("\nKindly enter a value from the available namespaces and pods")
             return None
