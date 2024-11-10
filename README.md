@@ -74,7 +74,7 @@ Note: If the kube config path for your cluster is not the default *(~/.kube/conf
 
 There are two ways to start using KRS in local machine:
   1. [Clone the repository](#clone-the-repository)
-  2. [Install in Docker Desktop Extension](#install-in-docker-desktop-extension)
+  2. [Install using Docker Desktop Extension](#install-in-docker-desktop-extension)
 
 ## Clone the repository
 
