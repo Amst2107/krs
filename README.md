@@ -17,6 +17,7 @@ A GenAI-powered Kubetools Recommender system for your Kubernetes cluster.
   - [Clone the repository](#clone-the-repository)
   - [Install the Krs Tool](#install-the-krs-tool)
   - [Krs CLI](#krs-cli)
+  - [Krs Docker Extension](#install-in-docker-desktop-extension)
 - [Initialise and load the scanner](#initialise-and-load-the-scanner)
 - [Scan your cluster](#scan-your-cluster)
 - [Lists all the namespaces](#lists-all-the-namespaces)
@@ -71,6 +72,9 @@ Note: If the kube config path for your cluster is not the default *(~/.kube/conf
 
 ## Getting Started
 
+There are two ways to start using KRS in local machine:
+  1. [Clone the repository](#clone-the-repository)
+  2. [Install using Docker Desktop Extension](#install-in-docker-desktop-extension)
 
 ## Clone the repository
 
@@ -409,6 +413,14 @@ config.json: 100%|████████████████████�
 model.safetensors.index.json: 100%|█████████████████████████████████| 31.4k/31.4k [00:00<00:00, 13.9MB/s]
 ...
 ```
+
+## Install using Docker Desktop Extension
+
+KRS is now available in Docker-Desktop. The extension provides a **user-friendly interface** for Kubernetes cluster operations. It also supports other K8s contexts besides `docker-desktop,` such as `Minikube`. For more [information](https://github.com/kubetoolsca/krs-docker-extension):
+
+Check out this link [here](https://open.docker.com/extensions/marketplace?extensionId=kubetoolsca/krs-docker-extension)
+
+![KRS Scan](krs-extension.png)
 
 ## FAQs
 
