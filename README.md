@@ -414,7 +414,7 @@ model.safetensors.index.json: 100%|███████████████
 ...
 ```
 
-## Install in Docker Desktop Extension
+## Install using Docker Desktop Extension
 
 KRS is now available in Docker-Desktop. The extension provides a **user-friendly interface** for Kubernetes cluster operations. It also supports other K8s contexts besides `docker-desktop,` such as `Minikube`. For more [information](https://github.com/kubetoolsca/krs-docker-extension):
 
