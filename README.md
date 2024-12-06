@@ -1,14 +1,16 @@
 
-
-
 # Kubetools Recommender System(a.k.a Krs)
 
-A GenAI-powered Kubetools Recommender system for your Kubernetes cluster. 
+A GenAI-powered Kubetools Recommender system for your Kubernetes cluster.
 
+<<<<<<< Updated upstream
 <img src="https://github.com/kubetoolsca/krs/assets/313480/5da391ba-6b15-4010-8bc7-404978bef1e7" width="400">
 
 
 
+=======
+<img src="https://github.com/user-attachments/assets/47432702-0d16-49c9-af23-6331f753cf76" alt="krs_logo" width="300" height="320">
+>>>>>>> Stashed changes
 
 # Table of Contents
 
@@ -26,16 +28,17 @@ A GenAI-powered Kubetools Recommender system for your Kubernetes cluster.
 - [Kubetools Recommender System](#kubetools-recommender-system-1)
 - [Krs health](#krs-health)
   - [Using OpenAI](#using-openai)
-  - [Using Hugging Face](#using-hugging-face) 
+  - [Using Hugging Face](#using-hugging-face)
 - [FAQs](#faqs)
-
-
 
 The main functionalities of the project include:
 
+<<<<<<< Updated upstream
 <img width="1499" alt="image" src="arch.png">
 
 
+=======
+>>>>>>> Stashed changes
 - **Scanning the Kubernetes cluster**: The tool scans the cluster to identify the deployed pods, services, and deployments. It retrieves information about the tools used in the cluster and their rankings.
 - **Detecting tools from the repository**: The tool detects the tools used in the cluster by analyzing the names of the pods and deployments.
 - **Extracting rankings**: The tool extracts the rankings of the detected tools based on predefined criteria. It categorizes the tools into different categories and provides the rankings for each category.
@@ -45,17 +48,35 @@ The main functionalities of the project include:
 - **Cleaning up**: The tool provides an option to clean up the project's data directory by deleting all files and directories within it.
 - **Model**: Supports OpenAI and Hugging Face models
 
+<<<<<<< Updated upstream
 The project uses various Python libraries, such as typer, requests, kubernetes, tabulate, and pickle, to accomplish its functionalities. 
 It also utilizes a language model (LLM) for the health check feature. 
 The project's directory structure and package management are managed using requirements.txt. 
+=======
+## How does it work?
+
+<img width="1146" alt="image" src="https://github.com/user-attachments/assets/e415db6d-5aff-4ea5-92f7-59f37a353d6f">
+
+The project uses various Python libraries, such as typer, requests, kubernetes, tabulate, and pickle, to accomplish its functionalities.
+It also utilizes a language model (LLM) for the health check feature.
+The project's directory structure and package management are managed using requirements.txt.
+>>>>>>> Stashed changes
 The project's data, such as tool rankings, CNCF status, and Kubernetes cluster information, are stored in JSON files and pickled files.
 
 <img width="299" alt="image" src="bhive.png">
 
+<<<<<<< Updated upstream
 
 ## Prerequisites:
 
 1. A Kubernetes cluster up and running locally or in the Cloud. 
+=======
+<img src="demo.gif" width=650px />
+
+## Prerequisites
+
+1. A Kubernetes cluster up and running locally or in the Cloud.
+>>>>>>> Stashed changes
 2. Python 3.6+
 
 Note: If the kube config path for your cluster is not the default *(~/.kube/config)*, ensure you are providing it during `krs init`
@@ -69,13 +90,15 @@ Note: If the kube config path for your cluster is not the default *(~/.kube/conf
 - [Azure Kubernetes Service](aks.md)
 - [DigitalOcean Kubernetes Cluster](dokc.md)
 
-
 ## Getting Started
 
+<<<<<<< Updated upstream
 There are two ways to start using KRS in local machine:
   1. [Clone the repository](#clone-the-repository)
   2. [Install using Docker Desktop Extension](#install-in-docker-desktop-extension)
 
+=======
+>>>>>>> Stashed changes
 ## Clone the repository
 
 ```
@@ -90,7 +113,6 @@ Change directory to /krs and run the following command to install krs locally on
 pip install .
 ````
 
-
 ## Krs CLI
 
 ```
@@ -101,33 +123,32 @@ pip install .
 
  krs: A command line interface to scan your Kubernetes Cluster, detect errors, provide resolutions using LLMs and recommend latest tools for your cluster
 
-╭─ Options ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ --install-completion          Install completion for the current shell.                                                                                       │
-│ --show-completion             Show completion for the current shell, to copy it or customize the installation.                                                │
-│ --help                        Show this message and exit.                                                                                                     │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭─ Commands ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ exit         Ends krs services safely and deletes all state files from system. Removes all cached data.                                                       │
-│ export       Exports pod info with logs and events.                                                                                                           │
-│ health       Starts an interactive terminal using an LLM of your choice to detect and fix issues with your cluster                                            │
-│ init         Initializes the services and loads the scanner.                                                                                                  │
-│ namespaces   Lists all the namespaces.                                                                                                                        │
-│ pods         Lists all the pods with namespaces, or lists pods under a specified namespace.                                                                   │
-│ recommend    Generates a table of recommended tools from our ranking database and their CNCF project status.                                                  │
-│ scan         Scans the cluster and extracts a list of tools that are currently used.                                                                          │
-╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+â•­â”€ Options â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•®
+â”‚ --install-completion          Install completion for the current shell.                                                                                       â”‚
+â”‚ --show-completion             Show completion for the current shell, to copy it or customize the installation.                                                â”‚
+â”‚ --help                        Show this message and exit.                                                                                                     â”‚
+â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•¯
+â•­â”€ Commands â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•®
+â”‚ exit         Ends krs services safely and deletes all state files from system. Removes all cached data.                                                       â”‚
+â”‚ export       Exports pod info with logs and events.                                                                                                           â”‚
+â”‚ health       Starts an interactive terminal using an LLM of your choice to detect and fix issues with your cluster                                            â”‚
+â”‚ init         Initializes the services and loads the scanner.                                                                                                  â”‚
+â”‚ namespaces   Lists all the namespaces.                                                                                                                        â”‚
+â”‚ pods         Lists all the pods with namespaces, or lists pods under a specified namespace.                                                                   â”‚
+â”‚ recommend    Generates a table of recommended tools from our ranking database and their CNCF project status.                                                  â”‚
+â”‚ scan         Scans the cluster and extracts a list of tools that are currently used.                                                                          â”‚
+â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•¯
 ```
 
 ## Initialise and load the scanner
 
 Run the following command to initialize the services and loads the scanner.
 
-
 ```
 krs init
 ```
 
-## Scan your cluster 
+## Scan your cluster
 
 Run the following command to scan the cluster and extract a list of tools that are currently used.
 
@@ -154,7 +175,6 @@ The cluster is using the following tools:
 +-------------+--------+------------+---------------+
 ```
 
-
 ## Lists all the namespaces
 
 ```
@@ -177,7 +197,7 @@ cd samples
 sh install-tools.sh
 ```
 
-## Use scanner 
+## Use scanner
 
 ```
 krs scan
@@ -204,7 +224,6 @@ The cluster is using the following tools:
 
 Generates a table of recommended tools from our ranking database and their CNCF project status.
 
-
 ```
 krs recommend
 
@@ -219,10 +238,7 @@ Our recommended tools for this deployment are:
 +----------------------+------------------+-------------+---------------+
 ```
 
-
 ## Krs health
-
-
 
 Assuming that there is a Nginx Pod under the namespace ns1
 
@@ -248,11 +264,10 @@ Choose the model provider for healthcheck:
 >>
 ```
 
-The user is prompted to choose a model provider for the health check. 
+The user is prompted to choose a model provider for the health check.
 The options provided are "OpenAI" and "Huggingface". The selected option determines which LLM model will be used for the health check.
 
 Let's say you choose the option "1", then it will install the necessary libraries.
-
 
 ```
 Enter your OpenAI API key: sk-3iXXXXXTpTyyOq2mR
@@ -380,7 +395,6 @@ After performing these steps, restart relevant services or components as needed 
 Feel free to provide more specific details or additional logs if you need further assistance with resolving the error messages.
 ```
 
-
 ## Using Hugging Face
 
 ```
@@ -405,12 +419,12 @@ torch is already installed.
   torch.utils._pytree._register_pytree_node(
 
 Enter the Huggingface model name: codellama/CodeLlama-13b-hf
-tokenizer_config.json: 100%|█████████████████████████████████████████████| 749/749 [00:00<00:00, 768kB/s]
-tokenizer.model: 100%|████████████████████████████████████████████████| 500k/500k [00:00<00:00, 1.94MB/s]
-tokenizer.json: 100%|███████████████████████████████████████████████| 1.84M/1.84M [00:01<00:00, 1.78MB/s]
-special_tokens_map.json: 100%|██████████████████████████████████████████| 411/411 [00:00<00:00, 1.49MB/s]
-config.json: 100%|██████████████████████████████████████████████████████| 589/589 [00:00<00:00, 1.09MB/s]
-model.safetensors.index.json: 100%|█████████████████████████████████| 31.4k/31.4k [00:00<00:00, 13.9MB/s]
+tokenizer_config.json: 100%|â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ| 749/749 [00:00<00:00, 768kB/s]
+tokenizer.model: 100%|â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ| 500k/500k [00:00<00:00, 1.94MB/s]
+tokenizer.json: 100%|â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ| 1.84M/1.84M [00:01<00:00, 1.78MB/s]
+special_tokens_map.json: 100%|â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ| 411/411 [00:00<00:00, 1.49MB/s]
+config.json: 100%|â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ| 589/589 [00:00<00:00, 1.09MB/s]
+model.safetensors.index.json: 100%|â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ| 31.4k/31.4k [00:00<00:00, 13.9MB/s]
 ...
 ```
 
@@ -430,18 +444,10 @@ Check out this link [here](https://open.docker.com/extensions/marketplace?extens
 The tool is designed to be a non-invasive tool that provides insights into the current state of a Kubernetes cluster without making any changes to the cluster itself. It does not store any sensitive data or credentials, and it only retrieves information from the cluster and external data sources.
 </details>
 
-
-
 ## Community
+
 Find us on [Slack](https://www.launchpass.com/kubetoolsio)
 
 <a href="https://github.com/kubetoolsca/krs/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=kubetoolsca/krs" />
 </a>
-
-
-
-
-
-
-
